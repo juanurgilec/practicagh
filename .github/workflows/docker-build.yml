@@ -68,8 +68,7 @@ jobs:
       # Acceder al servicio en Minikube
       - name: Access Service
         run: |
-          kubectl port-forward service/python-flask-service 5000:5000
-
+          nohup kubectl port-forward service/python-flask-service 5000:5000  > port-forward.log 2>&1 &
           RESPONSE=$(curl -s http://localhost:5000)
           # Mostrar el resultado HTML
           echo "Respuesta del servicio (HTML):"
