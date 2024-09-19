@@ -55,6 +55,8 @@ jobs:
           sleep 30s
           kubectl get deployment
           kubectl describe deployment python-flask-app
+          kubectl describe pod --selector=app=python-flask-app
+
           #kubectl rollout status deployment/python-flask-app
 
       # Verificar que el despliegue es exitoso
