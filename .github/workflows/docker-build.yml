@@ -41,16 +41,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       # Configurar Minikube en GitHub Actions
-      - name: Setup Minikube
-        uses: medyagh/setup-minikube@latest
+      - name: Setup K3s
+        uses: debianmaster/actions-k3s@master
+        id: k3s
         with:
-          minikube-version: 'latest'
-          kubernetes-version: 'v1.21.0'
-          driver: docker
+          version: 'latest'
 
 
       # Aplicar el archivo de despliegue en Kubernetes (Minikube)
-      - name: Deploy to Minikube
+      - name: Deploy to k3s
         run: |
           kubectl apply -f ./deployment.yaml
           sleep 30s
