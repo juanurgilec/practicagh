@@ -52,12 +52,12 @@ jobs:
       - name: Deploy to k3s
         run: |
           kubectl apply -f ./deployment.yaml
-          sleep 30s
-          kubectl get deployment
-          kubectl describe deployment python-flask-app
-          kubectl describe pod --selector=app=python-flask-app
-
-          #kubectl rollout status deployment/python-flask-app
+          kubectl rollout status deployment/python-flask-app
+         # sleep 30s
+         # kubectl get deployment
+         # kubectl describe deployment python-flask-app
+         # kubectl describe pod --selector=app=python-flask-appS
+         
 
       # Verificar que el despliegue es exitoso
       - name: Test the Deployment
