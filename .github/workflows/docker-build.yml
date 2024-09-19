@@ -69,6 +69,7 @@ jobs:
       - name: Access Service
         run: |
           nohup kubectl port-forward service/python-flask-service 5000:5000  > port-forward.log 2>&1 &
+          sleep 3s
           RESPONSE=$(curl -s http://localhost:5000)
           # Mostrar el resultado HTML
           echo "Respuesta del servicio (HTML):"
