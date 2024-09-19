@@ -68,4 +68,4 @@ jobs:
       # Acceder al servicio en Minikube
       - name: Access Service
         run: |
-          minikube service python-flask-service --url
+          curl http://localhost:30000
