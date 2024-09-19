@@ -68,4 +68,8 @@ jobs:
       # Acceder al servicio en Minikube
       - name: Access Service
         run: |
-          curl http://localhost:30000
+          CLUSTER_IP=$(kubectl get svc <nombre-del-servicio> -o jsonpath='{.spec.clusterIP}')
+          RESPONSE=$(curl -s http://$CLUSTER_IP:30000)
+          # Mostrar el resultado HTML
+          echo "Respuesta del servicio (HTML):"
+          echo "$RESPONSE"
