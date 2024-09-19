@@ -68,7 +68,7 @@ jobs:
       # Acceder al servicio en Minikube
       - name: Access Service
         run: |
-          CLUSTER_IP=$(kubectl get svc <nombre-del-servicio> -o jsonpath='{.spec.clusterIP}')
+          CLUSTER_IP=$(kubectl get svc python-flask-service -o jsonpath='{.spec.clusterIP}')
           RESPONSE=$(curl -s http://$CLUSTER_IP:30000)
           # Mostrar el resultado HTML
           echo "Respuesta del servicio (HTML):"
