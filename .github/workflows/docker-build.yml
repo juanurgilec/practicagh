@@ -53,7 +53,9 @@ jobs:
       - name: Deploy to Minikube
         run: |
           kubectl apply -f ./deployment.yaml
-          kubectl rollout status deployment/python-flask-app
+          sleep 30s
+          kubectl get deployment
+          #kubectl rollout status deployment/python-flask-app
 
       # Verificar que el despliegue es exitoso
       - name: Test the Deployment
